@@ -4,9 +4,7 @@ include '../../control/UserControl.php';
 $data = file_get_contents('php://input');
 $obj =  json_decode($data);
 
-var_dump($obj);
-
-$id = $obj->id_user;
+$id = $obj->id_users;
 
 if(!empty($data)){	
     $userControl = new UserControl();

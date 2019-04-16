@@ -69,15 +69,15 @@ class User extends Conexao
 
     public function update($obj, $id = null)
     {                                           
-        $sql = "UPDATE users SET name_user = :name, last_name_user = :last, age_user = :age, phone_user = :phone, whatsapp_user = :whatsapp WHERE id_user = :id";
+        $sql = "UPDATE users SET name_user = :name, last_name_user = :last, age_user = :age, phone_user = :phone, whatsapp_user = :whatsapp WHERE id_users = :id";
         $rs = $this->bindValueAll($sql, $obj, $id);
         return $rs;
     }
 
     public function delete($obj, $id)
     {
-
-        $sql = "DELETE FROM users WHERE id_user = :id";
+        
+        $sql = "DELETE FROM users WHERE id_users = :id";
         $consulta = Conexao::prepare($sql);
         $consulta->bindValue('id', $id);
         return $consulta->execute();
