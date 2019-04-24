@@ -62,7 +62,7 @@ class User extends Conexao
 
     public function insert($obj)
     {
-        $sql = "INSERT INTO users(name_user, last_name_user, age_user, phone_user, whatsapp_user) VALUES (:name,:last,:age,:phone,:whatsapp)";
+        $sql = "INSERT INTO users(name_user, last_name_user, age_user, phone_user, whatsapp_user, email_user, password) VALUES (:name,:last,:age,:phone,:whatsapp, :email, :password)";
         $rs = $this->bindValueAll($sql, $obj, null);
         return $rs;
     }
@@ -100,6 +100,8 @@ class User extends Conexao
         $query->bindValue('age', $_obj->age_user);
         $query->bindValue('phone', $_obj->phone_user);
         $query->bindValue('whatsapp', $_obj->whatsapp_user);
+        $query->bindValue('email', $_obj->email_user);
+        $query->bindValue('password', md5($_obj->password));
 
         if ($id != null) {
             $query->bindValue('id', $id);
