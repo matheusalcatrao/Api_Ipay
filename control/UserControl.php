@@ -9,6 +9,12 @@ class UserControl{
 		header('Location:listar.php');
 	}
 
+	function login($obj){
+		$conteudo = new User();
+		return $conteudo->login($obj);
+		
+	}
+
 	function update($obj,$id){
 		$conteudo = new User();
 		return $conteudo->update($obj,$id);

@@ -6,6 +6,6 @@ $obj = json_decode($data);
 
 if (!empty($data)) {
     $userControl = new UserControl();
-    $rs = $userControl->insert($obj);
-    header("Retorno : $rs");
+    $userControl->login($obj);
+    header('Location:list.php');
 }

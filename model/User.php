@@ -67,6 +67,13 @@ class User extends Conexao
         return $rs;
     }
 
+    public function login($obj)
+    {
+        $sql = "SELECT * FROM users WHERE name_user = ";
+        $rs = $this->bindValueAll($sql, $obj, null);
+        return $rs;
+    }
+
     public function update($obj, $id = null)
     {                                           
         $sql = "UPDATE users SET name_user = :name, last_name_user = :last, age_user = :age, phone_user = :phone, whatsapp_user = :whatsapp WHERE id_users = :id";
